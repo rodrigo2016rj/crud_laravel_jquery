@@ -1,6 +1,10 @@
 {
   "name": "rodrigo2016rj/crud_laravel_jquery",
-  "authors": "Rodrigo Diniz da Silva",
+  "authors": [
+    {
+      "name": "Rodrigo Diniz da Silva"
+    }
+  ],
   "type": "project",
   "description": "CRUD Laravel jQuery.",
   "keywords": ["CRUD", "Laravel", "jQuery"],
