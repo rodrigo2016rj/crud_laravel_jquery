@@ -8,6 +8,7 @@ $(document).ready(function(){
   const $caixa_de_selecao_filtro_setor = $("#caixa_de_selecao_filtro_setor");
   const $caixa_de_selecao_quantidade_por_pagina = $("#caixa_de_selecao_quantidade_por_pagina");
   
+  const $campo_ordenacao = $("#campo_ordenacao");
   const $botao_buscar = $("#botao_buscar");
   const $botao_limpar = $("#botao_limpar");
   
@@ -17,6 +18,7 @@ $(document).ready(function(){
   const $div_paginacao_de_cima_da_lista_de_pessoas = $("#div_paginacao_de_cima_da_lista_de_pessoas");
   const $div_paginacao_de_baixo_da_lista_de_pessoas = $("#div_paginacao_de_baixo_da_lista_de_pessoas");
   const $paginacao = $.merge($div_paginacao_de_cima_da_lista_de_pessoas, $div_paginacao_de_baixo_da_lista_de_pessoas);
+  const $pagina_selecionada = $(".pagina_selecionada");
   
   const $div_partes_da_lista_de_pessoas = $("#div_partes_da_lista_de_pessoas");
   const $partes_da_lista = $(".parte_da_lista");
@@ -28,8 +30,8 @@ $(document).ready(function(){
   const $div_editar_pessoa = $("#div_editar_pessoa");
   
   let limpando = false;
-  let ordenacao = null;
-  let pagina = null;
+  let ordenacao = $campo_ordenacao.val();
+  let pagina = $pagina_selecionada.eq(0).text();
   let contador_de_filtro = 0;
   
   $campo_filtro_nome.keyup(function(){

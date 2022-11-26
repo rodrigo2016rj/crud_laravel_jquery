@@ -32,7 +32,8 @@
         </label>
       </div>
       <div id="div_campo_filtro_nome">
-        <input type="text" id="campo_filtro_nome" name="filtro_nome" autocomplete="off"
+        <input type="text" id="campo_filtro_nome" name="filtro_nome" 
+               value="{{$lista_de_pessoas['filtro_nome']}}" autocomplete="off" 
                placeholder="Parte do nome"/>
       </div>
     </div>
@@ -43,7 +44,8 @@
         </label>
       </div>
       <div id="div_campo_filtro_cpf">
-        <input type="text" id="campo_filtro_cpf" name="filtro_cpf" autocomplete="off"
+        <input type="text" id="campo_filtro_cpf" name="filtro_cpf" 
+               value="{{$lista_de_pessoas['filtro_cpf']}}" autocomplete="off" 
                placeholder="CPF completo"/>
       </div>
     </div>
@@ -55,6 +57,7 @@
       </div>
       <div id="div_campo_filtro_data_de_nascimento">
         <input type="text" id="campo_filtro_data_de_nascimento" name="filtro_data_de_nascimento" 
+               value="{{$lista_de_pessoas['filtro_data_de_nascimento']}}" 
                autocomplete="off" placeholder="dia/mês/ano"/>
         <span id="span_icone_de_calendario_do_campo_filtro_data_de_nascimento"></span>
       </div>
@@ -69,7 +72,11 @@
         <select id="caixa_de_selecao_filtro_setor" name="filtro_id_do_setor">
           <option value="">Selecione</option>
           @foreach ($setores as $setor)
+            @if ($setor['id'] == $lista_de_pessoas['filtro_id_do_setor'])
+            <option value="{{$setor['id']}}" selected="selected">{{$setor['nome']}}</option>
+            @else
             <option value="{{$setor['id']}}">{{$setor['nome']}}</option>
+            @endif
           @endforeach
         </select>
       </div>
@@ -93,6 +100,8 @@
       </div>
     </div>
     <div id="div_botoes_dos_filtros">
+      <input type="hidden" id="campo_ordenacao" name="ordenacao" 
+             value="{{$lista_de_pessoas['ordenacao']}}"/>
       <button type="button" id="botao_buscar">Buscar</button>
       <button type="button" id="botao_limpar">Limpar</button>
     </div>
@@ -109,16 +118,16 @@
     @endif
     <div id="div_partes_da_lista_de_pessoas">
       <div id="div_parte_nome_da_lista_de_pessoas" class="parte_da_lista">
-        <span>Nome</span>
+        <span>Nome{{$lista_de_pessoas['ordem_do_nome']}}</span>
       </div>
       <div id="div_parte_cpf_da_lista_de_pessoas" class="parte_da_lista">
-        <span>CPF</span>
+        <span>CPF{{$lista_de_pessoas['ordem_do_cpf']}}</span>
       </div>
       <div id="div_parte_setor_da_lista_de_pessoas" class="parte_da_lista">
-        <span>Setor</span>
+        <span>Setor{{$lista_de_pessoas['ordem_do_setor']}}</span>
       </div>
       <div id="div_parte_contato_da_lista_de_pessoas" class="parte_da_lista">
-        <span>Contato</span>
+        <span>Contato{{$lista_de_pessoas['ordem_do_contato']}}</span>
       </div>
       <div id="div_parte_opcoes_da_lista_de_pessoas" class="parte_da_lista">
         <span>Opções</span>

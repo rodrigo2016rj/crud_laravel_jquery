@@ -76,40 +76,65 @@ final class TudoEmUmController extends TemplateController{
     if($filtro_nome !== ''){
       $filtros['nome'] = $filtro_nome;
     }
+    $valores['filtro_nome'] = $filtro_nome;
 
     $filtro_cpf = trim($requisicao->$metodo('filtro_cpf') ?? '');
     if($filtro_cpf !== ''){
       $filtros['cpf'] = $filtro_cpf;
     }
+    $valores['filtro_cpf'] = $filtro_cpf;
 
     $filtro_data_de_nascimento = trim($requisicao->$metodo('filtro_data_de_nascimento') ?? '');
     if($filtro_data_de_nascimento !== ''){
       $data_convertida = $this->converter_para_data_do_sql($filtro_data_de_nascimento);
       $filtros['data_de_nascimento'] = $data_convertida;
     }
+    $valores['filtro_data_de_nascimento'] = $filtro_data_de_nascimento;
 
     $filtro_id_do_setor = $requisicao->$metodo('filtro_id_do_setor');
     if($filtro_id_do_setor !== '' && $filtro_id_do_setor !== null){
       $filtros['id_do_setor'] = $filtro_id_do_setor;
     }
+    $valores['filtro_id_do_setor'] = $filtro_id_do_setor;
 
     /* Preparando a ordenação */
     $ordenacao = $requisicao->$metodo('ordenacao');
+    $valores['ordem_do_nome'] = '';
+    $valores['ordem_do_cpf'] = '';
+    $valores['ordem_do_setor'] = '';
+    $valores['ordem_do_contato'] = '';
     switch($ordenacao){
       case 'padrao':
+        break;
       case 'nome_completo_a_z':
+        $valores['ordem_do_nome'] = ' (A → Z)';
+        break;
       case 'nome_completo_z_a':
+        $valores['ordem_do_nome'] = ' (Z → A)';
+        break;
       case 'cpf_crescente':
+        $valores['ordem_do_cpf'] = ' (0 → 9)';
+        break;
       case 'cpf_decrescente':
+        $valores['ordem_do_cpf'] = ' (9 → 0)';
+        break;
       case 'setor_a_z':
+        $valores['ordem_do_setor'] = ' (A → Z)';
+        break;
       case 'setor_z_a':
+        $valores['ordem_do_setor'] = ' (Z → A)';
+        break;
       case 'contato_a_z':
+        $valores['ordem_do_contato'] = ' (A → Z)';
+        break;
       case 'contato_z_a':
+        $valores['ordem_do_contato'] = ' (Z → A)';
         break;
       default:
         $ordenacao = 'padrao';
         break;
     }
+    $valores['ordenacao'] = $ordenacao;
 
     /* Preparando a paginação */
     $quantidade_por_pagina = (int) $requisicao->$metodo('quantidade_por_pagina');
