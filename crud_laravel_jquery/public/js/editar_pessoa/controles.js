@@ -97,7 +97,7 @@ $(document).ready(function(){
       $div_calendario.css("left", posicao_x);
       $div_calendario.css("top", posicao_y);
       if(window.innerWidth <= 640){
-        const largura_do_calendario = 347; //Em pixels.
+        const largura_do_calendario = 348; //Em pixels.
         $div_calendario.css("left", window.innerWidth / 2 - largura_do_calendario / 2);
       }
       
