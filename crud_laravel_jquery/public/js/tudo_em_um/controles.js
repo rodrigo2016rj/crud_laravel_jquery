@@ -421,12 +421,12 @@ $(document).ready(function(){
   });
   
   /* Refazendo o comportamento dos labels */
-  $div_editar_pessoa.on("click", "div>div>:not(.item_da_lista_de_sexos)", function(evento){
+  $div_editar_pessoa.on("click", "div>div>label:not(.item_da_lista_de_sexos)", function(evento){
     evento.preventDefault();
     const atributo_for_do_label = $(this).attr("for");
     $div_editar_pessoa.find("." + atributo_for_do_label).focus();
   });
-  $div_editar_pessoa.on("click", "div>div>.item_da_lista_de_sexos", function(){
+  $div_editar_pessoa.on("click", "div>div>label.item_da_lista_de_sexos", function(){
     $(this).children("input")[0].checked = true;
   });
   
