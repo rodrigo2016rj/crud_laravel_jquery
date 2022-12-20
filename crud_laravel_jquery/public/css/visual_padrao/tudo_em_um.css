@@ -464,6 +464,9 @@
 
 /* Formulário Cadastrar Pessoa */
 #div_cadastrar_pessoa{
+  position: absolute;
+  top: 0px; /* Será modificado pelo script */
+  left: 0px; /* Será modificado pelo script */
   border: 1px solid #A4A4A4;
   padding: 20px 40px;
   width: calc(482px - 2px - 80px);
@@ -570,6 +573,9 @@
 /* Visualizar Pessoa */
 #div_visualizar_pessoa,
 .div_visualizar_pessoa{
+  position: absolute;
+  top: 0px; /* Será modificado pelo script */
+  left: 0px; /* Será modificado pelo script */
   border: 1px solid #A4A4A4;
   padding: 20px 40px 40px 40px;
   width: calc(882px - 2px - 40px - 40px);
@@ -608,6 +614,9 @@
 /* Formulário Editar Pessoa */
 #div_editar_pessoa,
 .div_editar_pessoa{
+  position: absolute;
+  top: 0px; /* Será modificado pelo script */
+  left: 0px; /* Será modificado pelo script */
   border: 1px solid #A4A4A4;
   padding: 20px 40px;
   width: calc(482px - 2px - 80px);
@@ -717,6 +726,9 @@ input.campo_telefone_estrangeiro{
 /* Formulário Excluir Pessoa */
 #div_excluir_pessoa,
 .div_excluir_pessoa{
+  position: absolute;
+  top: 0px; /* Será modificado pelo script */
+  left: 0px; /* Será modificado pelo script */
   border: 1px solid #A4A4A4;
   padding: 20px 40px;
   width: calc(482px - 2px - 80px);

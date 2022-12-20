@@ -77,7 +77,7 @@ $(document).ready(function(){
     
     var largura_da_div = $div_cadastrar_pessoa.outerWidth();
     var posicao_x = $(document).width() / 2 - largura_da_div / 2;
-    if($(document).width() < 482){
+    if($(document).width() <= largura_da_div){
       posicao_x = 0;
     }
     
@@ -88,7 +88,6 @@ $(document).ready(function(){
       posicao_y = posicao_deste_link.top;
     }
     
-    $div_cadastrar_pessoa.css("position", "absolute");
     $div_cadastrar_pessoa.offset({top: posicao_y, left: posicao_x});
   });
   
@@ -357,7 +356,7 @@ $(document).ready(function(){
     
     var largura_da_div = $div_visualizar_pessoa.outerWidth();
     var posicao_x = $(document).width() / 2 - largura_da_div / 2;
-    if($(document).width() < 882){
+    if($(document).width() <= largura_da_div){
       posicao_x = 0;
     }
     
@@ -368,7 +367,6 @@ $(document).ready(function(){
       posicao_y = posicao_deste_link.top;
     }
     
-    $div_visualizar_pessoa.css("position", "absolute");
     $div_visualizar_pessoa.offset({top: posicao_y, left: posicao_x});
   });
   
@@ -400,7 +398,7 @@ $(document).ready(function(){
     
     var largura_da_div = $div_editar_pessoa.outerWidth();
     var posicao_x = $(document).width() / 2 - largura_da_div / 2;
-    if($(document).width() < 482){
+    if($(document).width() <= largura_da_div){
       posicao_x = 0;
     }
     
@@ -411,7 +409,6 @@ $(document).ready(function(){
       posicao_y = posicao_deste_link.top;
     }
     
-    $div_editar_pessoa.css("position", "absolute");
     $div_editar_pessoa.offset({top: posicao_y, left: posicao_x});
   });
   
@@ -684,7 +681,7 @@ $(document).ready(function(){
     
     var largura_da_div = $div_excluir_pessoa.outerWidth();
     var posicao_x = $(document).width() / 2 - largura_da_div / 2;
-    if($(document).width() < 482){
+    if($(document).width() <= largura_da_div){
       posicao_x = 0;
     }
     
@@ -695,7 +692,6 @@ $(document).ready(function(){
       posicao_y = posicao_deste_link.top;
     }
     
-    $div_excluir_pessoa.css("position", "absolute");
     $div_excluir_pessoa.offset({top: posicao_y, left: posicao_x});
   });
   
