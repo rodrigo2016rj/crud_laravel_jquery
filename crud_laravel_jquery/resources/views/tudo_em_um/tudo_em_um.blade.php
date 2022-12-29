@@ -69,7 +69,7 @@
         </label>
       </div>
       <div id="div_caixa_de_selecao_filtro_setor">
-        <select id="caixa_de_selecao_filtro_setor" name="filtro_id_do_setor">
+        <select id="caixa_de_selecao_filtro_setor" name="filtro_id_do_setor" autocomplete="off">
           <option value="">Selecione</option>
           @foreach ($setores as $setor)
             @if ($setor['id'] == $lista_de_pessoas['filtro_id_do_setor'])
@@ -88,7 +88,8 @@
         </label>
       </div>
       <div id="div_caixa_de_selecao_quantidade_por_pagina">
-        <select id="caixa_de_selecao_quantidade_por_pagina" name="quantidade_por_pagina">
+        <select id="caixa_de_selecao_quantidade_por_pagina" name="quantidade_por_pagina" 
+                autocomplete="off">
           @foreach ($quantidades_por_pagina as $chave => $valor)
             @if ($chave === $lista_de_pessoas['quantidade_por_pagina'])
             <option value="{{$chave}}" selected="selected">{{$valor}}</option>
@@ -208,7 +209,7 @@
       <div id="div_lista_de_sexos">
       @foreach ($sexos as $chave => $valor)
       <label class="item_da_lista_de_sexos">
-        <input type="radio" name="sexo" value="{{$chave}}"/>
+        <input type="radio" name="sexo" value="{{$chave}}" autocomplete="off"/>
         <span>{{$valor}}</span>
       </label>
       @endforeach
@@ -222,7 +223,7 @@
         </label>
       </div>
       <div id="div_caixa_de_selecao_setor">
-        <select id="caixa_de_selecao_setor" name="id_do_setor">
+        <select id="caixa_de_selecao_setor" name="id_do_setor" autocomplete="off">
           <option value="">Selecione</option>
           @foreach ($setores as $setor)
             <option value="{{$setor['id']}}">{{$setor['nome']}}</option>
@@ -286,7 +287,7 @@
   <div id="div_calendario" class="tag_oculta">
     <div id="div_cabecalho_do_calendario">
       <span id="span_titulo_do_calendario">Calendário</span>
-      <select id="caixa_de_selecao_de_mes_do_calendario">
+      <select id="caixa_de_selecao_de_mes_do_calendario" autocomplete="off">
         <option class="opcao_mes" value="1">Janeiro</option>
         <option class="opcao_mes" value="2">Fevereiro</option>
         <option class="opcao_mes" value="3">Março</option>
@@ -300,7 +301,7 @@
         <option class="opcao_mes" value="11">Novembro</option>
         <option class="opcao_mes" value="12">Dezembro</option>
       </select>
-      <select id="caixa_de_selecao_de_ano_do_calendario">
+      <select id="caixa_de_selecao_de_ano_do_calendario" autocomplete="off">
       </select>
     </div>
     <div id="div_corpo_do_calendario">

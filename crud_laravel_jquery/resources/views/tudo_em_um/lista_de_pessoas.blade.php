@@ -194,10 +194,11 @@
         <label class="item_da_lista_de_sexos">
           @if ($chave === $pessoa['sexo'])
           <input type="radio" name="sexo_da_pessoa_do_id_{{$pessoa['id']}}" value="{{$chave}}" 
-                 checked="checked"/>
+                 checked="checked" autocomplete="off"/>
           <span>{{$valor}}</span>
           @else
-          <input type="radio" name="sexo_da_pessoa_do_id_{{$pessoa['id']}}" value="{{$chave}}"/>
+          <input type="radio" name="sexo_da_pessoa_do_id_{{$pessoa['id']}}" value="{{$chave}}" 
+                 autocomplete="off"/>
           <span>{{$valor}}</span>
           @endif
         </label>
@@ -212,7 +213,7 @@
           </label>
         </div>
         <div class="div_caixa_de_selecao_setor">
-          <select class="caixa_de_selecao_setor" name="id_do_setor">
+          <select class="caixa_de_selecao_setor" name="id_do_setor" autocomplete="off">
             <option value="">Selecione</option>
             @foreach ($setores as $setor)
               @if ($setor['id'] == $pessoa['id_do_setor'])

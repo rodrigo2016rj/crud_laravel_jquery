@@ -80,10 +80,10 @@
       @foreach ($sexos as $chave => $valor)
       <label class="item_da_lista_de_sexos">
         @if ($chave === $sexo)
-        <input type="radio" name="sexo" value="{{$chave}}" checked="checked"/>
+        <input type="radio" name="sexo" value="{{$chave}}" checked="checked" autocomplete="off"/>
         <span>{{$valor}}</span>
         @else
-        <input type="radio" name="sexo" value="{{$chave}}"/>
+        <input type="radio" name="sexo" value="{{$chave}}" autocomplete="off"/>
         <span>{{$valor}}</span>
         @endif
       </label>
@@ -98,7 +98,7 @@
         </label>
       </div>
       <div id="div_caixa_de_selecao_setor">
-        <select id="caixa_de_selecao_setor" name="id_do_setor">
+        <select id="caixa_de_selecao_setor" name="id_do_setor" autocomplete="off">
           <option value="">Selecione</option>
           @foreach ($setores as $setor)
             @if ($setor['id'] == $id_do_setor)
@@ -163,7 +163,7 @@
   <div id="div_calendario" class="tag_oculta">
     <div id="div_cabecalho_do_calendario">
       <span id="span_titulo_do_calendario">Calendário</span>
-      <select id="caixa_de_selecao_de_mes_do_calendario">
+      <select id="caixa_de_selecao_de_mes_do_calendario" autocomplete="off">
         <option class="opcao_mes" value="1">Janeiro</option>
         <option class="opcao_mes" value="2">Fevereiro</option>
         <option class="opcao_mes" value="3">Março</option>
@@ -177,7 +177,7 @@
         <option class="opcao_mes" value="11">Novembro</option>
         <option class="opcao_mes" value="12">Dezembro</option>
       </select>
-      <select id="caixa_de_selecao_de_ano_do_calendario">
+      <select id="caixa_de_selecao_de_ano_do_calendario" autocomplete="off">
       </select>
     </div>
     <div id="div_corpo_do_calendario">
