@@ -25,25 +25,23 @@ $(document).ready(function(){
     
     if($campo_filtro_cpf.val().length >= 3){
       $campo_filtro_cpf.val($campo_filtro_cpf.val().slice(0, 3) + "." + $campo_filtro_cpf.val().slice(3));
-      if(posicao_do_cursor >= 3 && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
+      if((posicao_do_cursor === 3 || posicao_do_cursor === 4) && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
         posicao_do_cursor++;
-      }
-      if($campo_filtro_cpf.val().length >= 7 && posicao_do_cursor === 4){
+      }else if($campo_filtro_cpf.val().length >= 7 && posicao_do_cursor === 4){
         posicao_do_cursor++;
       }
     }
     if($campo_filtro_cpf.val().length >= 7){
       $campo_filtro_cpf.val($campo_filtro_cpf.val().slice(0, 7) + "." + $campo_filtro_cpf.val().slice(7));
-      if(posicao_do_cursor >= 7 && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
+      if((posicao_do_cursor === 7 || posicao_do_cursor === 8) && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
         posicao_do_cursor++;
-      }
-      if($campo_filtro_cpf.val().length >= 11 && posicao_do_cursor === 8){
+      }else if($campo_filtro_cpf.val().length >= 11 && posicao_do_cursor === 8){
         posicao_do_cursor++;
       }
     }
     if($campo_filtro_cpf.val().length >= 11){
       $campo_filtro_cpf.val($campo_filtro_cpf.val().slice(0, 11) + "-" + $campo_filtro_cpf.val().slice(11));
-      if(posicao_do_cursor === 12 && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
+      if((posicao_do_cursor === 11 || posicao_do_cursor === 12) && $campo_filtro_cpf.val().length > ultimo_valor_campo_filtro_cpf.length){
         posicao_do_cursor++;
       }
     }
@@ -122,25 +120,23 @@ $(document).ready(function(){
     
     if($campo_cpf.val().length >= 3){
       $campo_cpf.val($campo_cpf.val().slice(0, 3) + "." + $campo_cpf.val().slice(3));
-      if(posicao_do_cursor >= 3 && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
+      if((posicao_do_cursor === 3 || posicao_do_cursor === 4) && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
         posicao_do_cursor++;
-      }
-      if($campo_cpf.val().length >= 7 && posicao_do_cursor === 4){
+      }else if($campo_cpf.val().length >= 7 && posicao_do_cursor === 4){
         posicao_do_cursor++;
       }
     }
     if($campo_cpf.val().length >= 7){
       $campo_cpf.val($campo_cpf.val().slice(0, 7) + "." + $campo_cpf.val().slice(7));
-      if(posicao_do_cursor >= 7 && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
+      if((posicao_do_cursor === 7 || posicao_do_cursor === 8) && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
         posicao_do_cursor++;
-      }
-      if($campo_cpf.val().length >= 11 && posicao_do_cursor === 8){
+      }else if($campo_cpf.val().length >= 11 && posicao_do_cursor === 8){
         posicao_do_cursor++;
       }
     }
     if($campo_cpf.val().length >= 11){
       $campo_cpf.val($campo_cpf.val().slice(0, 11) + "-" + $campo_cpf.val().slice(11));
-      if(posicao_do_cursor === 12 && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
+      if((posicao_do_cursor === 11 || posicao_do_cursor === 12) && $campo_cpf.val().length > ultimo_valor_campo_cpf.length){
         posicao_do_cursor++;
       }
     }
@@ -452,25 +448,23 @@ $(document).ready(function(){
     
     if($(this).val().length >= 3){
       $(this).val($(this).val().slice(0, 3) + "." + $(this).val().slice(3));
-      if(posicao_do_cursor >= 3 && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
+      if((posicao_do_cursor === 3 || posicao_do_cursor === 4) && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
         posicao_do_cursor++;
-      }
-      if($(this).val().length >= 7 && posicao_do_cursor === 4){
+      }else if($(this).val().length >= 7 && posicao_do_cursor === 4){
         posicao_do_cursor++;
       }
     }
     if($(this).val().length >= 7){
       $(this).val($(this).val().slice(0, 7) + "." + $(this).val().slice(7));
-      if(posicao_do_cursor >= 7 && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
+      if((posicao_do_cursor === 7 || posicao_do_cursor === 8) && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
         posicao_do_cursor++;
-      }
-      if($(this).val().length >= 11 && posicao_do_cursor === 8){
+      }else if($(this).val().length >= 11 && posicao_do_cursor === 8){
         posicao_do_cursor++;
       }
     }
     if($(this).val().length >= 11){
       $(this).val($(this).val().slice(0, 11) + "-" + $(this).val().slice(11));
-      if(posicao_do_cursor === 12 && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
+      if((posicao_do_cursor === 11 || posicao_do_cursor === 12) && $(this).val().length > ultimo_valor_campo_cpf_do_formulario_de_editar.length){
         posicao_do_cursor++;
       }
     }
