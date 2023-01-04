@@ -18,7 +18,7 @@ $(document).ready(function(){
   const $div_paginacao_de_cima_da_lista_de_pessoas = $("#div_paginacao_de_cima_da_lista_de_pessoas");
   const $div_paginacao_de_baixo_da_lista_de_pessoas = $("#div_paginacao_de_baixo_da_lista_de_pessoas");
   const $paginacao = $.merge($div_paginacao_de_cima_da_lista_de_pessoas, $div_paginacao_de_baixo_da_lista_de_pessoas);
-  const $pagina_selecionada = $(".pagina_selecionada");
+  const $pagina_selecionada_inicialmente = $(".pagina_selecionada");
   
   const $div_partes_da_lista_de_pessoas = $("#div_partes_da_lista_de_pessoas");
   const $partes_da_lista = $(".parte_da_lista");
@@ -31,7 +31,7 @@ $(document).ready(function(){
   
   let limpando = false;
   let ordenacao = $campo_ordenacao.val();
-  let pagina = $pagina_selecionada.eq(0).text();
+  let pagina = $pagina_selecionada_inicialmente.eq(0).text();
   let contador_de_filtro = 0;
   
   $campo_filtro_nome.keyup(function(){
@@ -107,6 +107,11 @@ $(document).ready(function(){
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(data["lista"]);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          
+          if($(".pagina_selecionada").length === 0){
+            $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+          }
         }
       },
       dataType:"json"
@@ -154,6 +159,11 @@ $(document).ready(function(){
           $div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(data["lista"]);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          
+          if($(".pagina_selecionada").length === 0){
+            $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+          }
         }
       },
       dataType:"json"
@@ -258,6 +268,11 @@ $(document).ready(function(){
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(data["lista"]);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          
+          if($(".pagina_selecionada").length === 0){
+            $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+          }
         }
       },
       dataType:"json"
@@ -306,6 +321,11 @@ $(document).ready(function(){
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(data["lista"]);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          
+          if($(".pagina_selecionada").length === 0){
+            $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+          }
         }
       },
       dataType:"json"
@@ -421,6 +441,11 @@ $(document).ready(function(){
           $div_lista_de_pessoas.html(data["lista"]);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
           
+          if($(".pagina_selecionada").length === 0){
+            $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+          }
+          
           limpando = false;
         }
       },
@@ -514,6 +539,11 @@ $(document).ready(function(){
             $div_lista_de_pessoas.html(data["lista"]);
             $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
             
+            if($(".pagina_selecionada").length === 0){
+              $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+              $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+            }
+            
             const html = $("#div_editar_pessoa_do_id_" + id_da_pessoa).html();
             $div_editar_pessoa.html(html);
             
@@ -592,6 +622,11 @@ $(document).ready(function(){
             $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
             $div_lista_de_pessoas.html(data["lista"]);
             $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+            
+            if($(".pagina_selecionada").length === 0){
+              $div_paginacao_de_cima_da_lista_de_pessoas.html("");
+              $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
+            }
             
             const html = $("#div_excluir_pessoa_do_id_" + id_da_pessoa).html();
             $div_excluir_pessoa.html(html);

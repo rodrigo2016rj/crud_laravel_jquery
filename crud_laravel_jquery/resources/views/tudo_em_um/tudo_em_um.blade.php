@@ -112,11 +112,11 @@
       <span id="span_titulo_da_lista_de_pessoas">Lista</span>
       <span id="span_status_da_busca" class="tag_oculta"></span>
     </h3>
-    @if ($lista_de_pessoas['pagina_atual'])
     <div id="div_paginacao_de_cima_da_lista_de_pessoas">
+    @if ($lista_de_pessoas['pagina_atual'])
       @include ('tudo_em_um.paginacao_da_lista_de_pessoas')
-    </div>
     @endif
+    </div>
     <div id="div_partes_da_lista_de_pessoas">
       <div id="div_parte_nome_da_lista_de_pessoas" class="parte_da_lista">
         <span>Nome{{$lista_de_pessoas['ordem_do_nome']}}</span>
@@ -137,11 +137,11 @@
     <div id="div_lista_de_pessoas">
       @include ('tudo_em_um.lista_de_pessoas')
     </div>
-    @if ($lista_de_pessoas['pagina_atual'])
     <div id="div_paginacao_de_baixo_da_lista_de_pessoas">
+    @if ($lista_de_pessoas['pagina_atual'])
       @include ('tudo_em_um.paginacao_da_lista_de_pessoas')
-    </div>
     @endif
+    </div>
   </div>
   <div id="div_cadastrar_pessoa" class="tag_oculta">
     <div class="div_fechar">
