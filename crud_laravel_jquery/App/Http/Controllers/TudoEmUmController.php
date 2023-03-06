@@ -474,14 +474,14 @@ final class TudoEmUmController extends TemplateController{
     $quantidade_de_arrobas = substr_count($email, '@');
     if($quantidade_de_arrobas > 1){
       $mensagem = 'A pessoa não foi cadastrada.';
-      $mensagem .= ' O campo e-mail da pessoa precisa ter somente um caracter @.';
+      $mensagem .= ' O campo e-mail da pessoa precisa ter somente um caractere @.';
       $retorno['mensagem_de_falha'] = $mensagem;
       echo(json_encode($retorno));
       die;
     }
     if($quantidade_de_arrobas < 1){
       $mensagem = 'A pessoa não foi cadastrada.';
-      $mensagem .= ' O campo e-mail da pessoa precisa ter pelo menos um caracter @.';
+      $mensagem .= ' O campo e-mail da pessoa precisa ter pelo menos um caractere @.';
       $retorno['mensagem_de_falha'] = $mensagem;
       echo(json_encode($retorno));
       die;
@@ -782,14 +782,14 @@ final class TudoEmUmController extends TemplateController{
     $quantidade_de_arrobas = substr_count($email, '@');
     if($quantidade_de_arrobas > 1){
       $mensagem = 'A pessoa não foi editada.';
-      $mensagem .= ' O campo e-mail da pessoa precisa ter somente um caracter @.';
+      $mensagem .= ' O campo e-mail da pessoa precisa ter somente um caractere @.';
       $retorno['mensagem_de_falha'] = $mensagem;
       echo(json_encode($retorno));
       die;
     }
     if($quantidade_de_arrobas < 1){
       $mensagem = 'A pessoa não foi editada.';
-      $mensagem .= ' O campo e-mail da pessoa precisa ter pelo menos um caracter @.';
+      $mensagem .= ' O campo e-mail da pessoa precisa ter pelo menos um caractere @.';
       $retorno['mensagem_de_falha'] = $mensagem;
       echo(json_encode($retorno));
       die;
