@@ -99,14 +99,14 @@ $(document).ready(function(){
       type: "GET",
       data: {filtro_nome: filtro_nome, filtro_cpf: filtro_cpf, filtro_data_de_nascimento: filtro_data_de_nascimento, 
              filtro_id_do_setor: filtro_id_do_setor, quantidade_por_pagina: quantidade_por_pagina, ordenacao: ordenacao},
-      success: function(data){
+      success: function(resposta){
         if(numero_desta_acao_filtrar >= contador_de_filtro){
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
-          $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-          $div_lista_de_pessoas.html(data["lista"]);
-          $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_lista_de_pessoas.html(resposta.lista);
+          $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
           atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
@@ -153,14 +153,14 @@ $(document).ready(function(){
       type: "GET",
       data: {filtro_nome: "", filtro_cpf: "", filtro_data_de_nascimento: "", filtro_id_do_setor: "", 
              quantidade_por_pagina: "", ordenacao: null},
-      success: function(data){
+      success: function(resposta){
         if(numero_desta_acao_filtrar >= contador_de_filtro){
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
-          $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
           $div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-          $div_lista_de_pessoas.html(data["lista"]);
-          $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_lista_de_pessoas.html(resposta.lista);
+          $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
           atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
@@ -264,14 +264,14 @@ $(document).ready(function(){
       type: "GET",
       data: {filtro_nome: filtro_nome, filtro_cpf: filtro_cpf, filtro_data_de_nascimento: filtro_data_de_nascimento, 
              filtro_id_do_setor: filtro_id_do_setor, quantidade_por_pagina: quantidade_por_pagina, ordenacao: ordenacao},
-      success: function(data){
+      success: function(resposta){
         if(numero_desta_acao_filtrar >= contador_de_filtro){
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
-          $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-          $div_lista_de_pessoas.html(data["lista"]);
-          $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_lista_de_pessoas.html(resposta.lista);
+          $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
           atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
@@ -319,14 +319,14 @@ $(document).ready(function(){
       data: {filtro_nome: filtro_nome, filtro_cpf: filtro_cpf, filtro_data_de_nascimento: filtro_data_de_nascimento, 
              filtro_id_do_setor: filtro_id_do_setor, quantidade_por_pagina: quantidade_por_pagina, ordenacao: ordenacao, 
              pagina: pagina},
-      success: function(data){
+      success: function(resposta){
         if(numero_desta_acao_filtrar >= contador_de_filtro){
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
-          $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-          $div_lista_de_pessoas.html(data["lista"]);
-          $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_lista_de_pessoas.html(resposta.lista);
+          $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
           atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
@@ -396,19 +396,19 @@ $(document).ready(function(){
              data_de_nascimento: data_de_nascimento, sexo: sexo, id_do_setor: id_do_setor, email: email, 
              telefone_fixo: telefone_fixo, telefone_movel: telefone_movel, telefone_estrangeiro: telefone_estrangeiro, 
              _token: anti_csrf},
-      success: function(data){
-        if(typeof data["mensagem_de_falha"] != "undefined"){
+      success: function(resposta){
+        if(typeof resposta.mensagem_de_falha != "undefined"){
           $span_mensagem_cadastrar_pessoa.attr("class", "mensagem_de_falha");
-          $span_mensagem_cadastrar_pessoa.text(data["mensagem_de_falha"]);
+          $span_mensagem_cadastrar_pessoa.text(resposta.mensagem_de_falha);
           
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           return;
         }
-        if(typeof data["mensagem_de_sucesso"] != "undefined"){
+        if(typeof resposta.mensagem_de_sucesso != "undefined"){
           $span_mensagem_cadastrar_pessoa.attr("class", "mensagem_de_sucesso");
-          $span_mensagem_cadastrar_pessoa.text(data["mensagem_de_sucesso"]);
+          $span_mensagem_cadastrar_pessoa.text(resposta.mensagem_de_sucesso);
           
           $campo_nome.val("").change();
           $campo_sobrenome.val("").change();
@@ -445,9 +445,9 @@ $(document).ready(function(){
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-          $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
-          $div_lista_de_pessoas.html(data["lista"]);
-          $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+          $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
+          $div_lista_de_pessoas.html(resposta.lista);
+          $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
           atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
@@ -527,27 +527,27 @@ $(document).ready(function(){
              sexo: sexo, id_do_setor: id_do_setor, email: email, telefone_fixo: telefone_fixo, 
              telefone_movel: telefone_movel, telefone_estrangeiro: telefone_estrangeiro, id_da_pessoa: id_da_pessoa, 
              _token: anti_csrf},
-      success: function(data){
-        if(typeof data["mensagem_de_falha"] != "undefined"){
+      success: function(resposta){
+        if(typeof resposta.mensagem_de_falha != "undefined"){
           $span_mensagem_editar_pessoa.addClass("mensagem_de_falha");
-          $span_mensagem_editar_pessoa.text(data["mensagem_de_falha"]);
+          $span_mensagem_editar_pessoa.text(resposta.mensagem_de_falha);
           
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           return;
         }
-        if(typeof data["mensagem_de_sucesso"] != "undefined"){
+        if(typeof resposta.mensagem_de_sucesso != "undefined"){
           $span_mensagem_editar_pessoa.addClass("mensagem_de_sucesso");
-          $span_mensagem_editar_pessoa.text(data["mensagem_de_sucesso"]);
+          $span_mensagem_editar_pessoa.text(resposta.mensagem_de_sucesso);
           
           if(numero_desta_acao_filtrar >= contador_de_filtro){
             $span_status_da_busca.text("");
             $span_status_da_busca.addClass("tag_oculta");
             //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-            $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
-            $div_lista_de_pessoas.html(data["lista"]);
-            $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+            $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
+            $div_lista_de_pessoas.html(resposta.lista);
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
             
             atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
             
@@ -564,7 +564,7 @@ $(document).ready(function(){
             
             const $span_mensagem_editar_pessoa_apos_atualizacao = $div_mensagem_apos_atualizacao.children(".span_mensagem_editar_pessoa");
             $span_mensagem_editar_pessoa_apos_atualizacao.addClass("mensagem_de_sucesso");
-            $span_mensagem_editar_pessoa_apos_atualizacao.text(data["mensagem_de_sucesso"]);
+            $span_mensagem_editar_pessoa_apos_atualizacao.text(resposta.mensagem_de_sucesso);
           }
         }
       },
@@ -613,27 +613,27 @@ $(document).ready(function(){
       data: {filtro_nome: filtro_nome, filtro_cpf: filtro_cpf, filtro_data_de_nascimento: filtro_data_de_nascimento, 
              filtro_id_do_setor: filtro_id_do_setor, quantidade_por_pagina: quantidade_por_pagina, ordenacao: ordenacao, 
              pagina: pagina, id_da_pessoa: id_da_pessoa, _token: anti_csrf},
-      success: function(data){
-        if(typeof data["mensagem_de_falha"] != "undefined"){
+      success: function(resposta){
+        if(typeof resposta.mensagem_de_falha != "undefined"){
           $span_mensagem_excluir_pessoa.addClass("mensagem_de_falha");
-          $span_mensagem_excluir_pessoa.text(data["mensagem_de_falha"]);
+          $span_mensagem_excluir_pessoa.text(resposta.mensagem_de_falha);
           
           $span_status_da_busca.text("");
           $span_status_da_busca.addClass("tag_oculta");
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           return;
         }
-        if(typeof data["mensagem_de_sucesso"] != "undefined"){
+        if(typeof resposta.mensagem_de_sucesso != "undefined"){
           $span_mensagem_excluir_pessoa.addClass("mensagem_de_sucesso");
-          $span_mensagem_excluir_pessoa.text(data["mensagem_de_sucesso"]);
+          $span_mensagem_excluir_pessoa.text(resposta.mensagem_de_sucesso);
           
           if(numero_desta_acao_filtrar >= contador_de_filtro){
             $span_status_da_busca.text("");
             $span_status_da_busca.addClass("tag_oculta");
             //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
-            $div_paginacao_de_cima_da_lista_de_pessoas.html(data["paginacao"]);
-            $div_lista_de_pessoas.html(data["lista"]);
-            $div_paginacao_de_baixo_da_lista_de_pessoas.html(data["paginacao"]);
+            $div_paginacao_de_cima_da_lista_de_pessoas.html(resposta.paginacao);
+            $div_lista_de_pessoas.html(resposta.lista);
+            $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
             
             atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
             
@@ -650,7 +650,7 @@ $(document).ready(function(){
             
             const $span_mensagem_excluir_pessoa_apos_atualizacao = $div_mensagem_apos_atualizacao.children(".span_mensagem_excluir_pessoa");
             $span_mensagem_excluir_pessoa_apos_atualizacao.addClass("mensagem_de_sucesso");
-            $span_mensagem_excluir_pessoa_apos_atualizacao.text(data["mensagem_de_sucesso"]);
+            $span_mensagem_excluir_pessoa_apos_atualizacao.text(resposta.mensagem_de_sucesso);
           }
         }
       },
