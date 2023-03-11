@@ -1,4 +1,4 @@
-$(window).on("load", function(){
+$(document).ready(function(){
   /* Removendo o foco do botão excluir quando o cursor sai de cima dele e após o clique */
   const $botao_excluir = $("#botao_excluir");
   
