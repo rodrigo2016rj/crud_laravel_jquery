@@ -389,6 +389,13 @@ $(document).ready(function(){
     const html = $("#div_editar_pessoa_do_id_" + id_da_pessoa).html();
     
     $div_editar_pessoa.html(html);
+    const $botoes_de_radio = $div_editar_pessoa.find("input[type='radio']");
+    $botoes_de_radio.each(function(){
+      let atributo_name = $(this).attr("name");
+      atributo_name = atributo_name + "_no_popup";
+      $(this).attr("name", atributo_name);
+    });
+    
     $div_editar_pessoa.removeClass("tag_oculta");
     ocultar_div_editar_pessoa = false;
     

@@ -108,8 +108,6 @@ $(document).ready(function(){
           $div_lista_de_pessoas.html(resposta.lista);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
-          atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
-          
           if($(".pagina_selecionada").length === 0){
             $div_paginacao_de_cima_da_lista_de_pessoas.html("");
             $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
@@ -161,8 +159,6 @@ $(document).ready(function(){
           $div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(resposta.lista);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
-          
-          atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
           if($(".pagina_selecionada").length === 0){
             $div_paginacao_de_cima_da_lista_de_pessoas.html("");
@@ -273,8 +269,6 @@ $(document).ready(function(){
           $div_lista_de_pessoas.html(resposta.lista);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
-          atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
-          
           if($(".pagina_selecionada").length === 0){
             $div_paginacao_de_cima_da_lista_de_pessoas.html("");
             $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
@@ -327,8 +321,6 @@ $(document).ready(function(){
           //$div_partes_da_lista_de_pessoas.removeClass("tag_oculta"); //Opcional
           $div_lista_de_pessoas.html(resposta.lista);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
-          
-          atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
           
           if($(".pagina_selecionada").length === 0){
             $div_paginacao_de_cima_da_lista_de_pessoas.html("");
@@ -449,8 +441,6 @@ $(document).ready(function(){
           $div_lista_de_pessoas.html(resposta.lista);
           $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
           
-          atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
-          
           if($(".pagina_selecionada").length === 0){
             $div_paginacao_de_cima_da_lista_de_pessoas.html("");
             $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
@@ -556,6 +546,12 @@ $(document).ready(function(){
             
             const html = $("#div_editar_pessoa_do_id_" + id_da_pessoa).html();
             $div_editar_pessoa.html(html);
+            const $botoes_de_radio = $div_editar_pessoa.find("input[type='radio']");
+            $botoes_de_radio.each(function(){
+              let atributo_name = $(this).attr("name");
+              atributo_name = atributo_name + "_no_popup";
+              $(this).attr("name", atributo_name);
+            });
             
             const $div_mensagem_apos_atualizacao = $div_editar_pessoa.children(".div_mensagem");
             $div_mensagem_apos_atualizacao.removeClass("tag_oculta");
@@ -633,8 +629,6 @@ $(document).ready(function(){
             $div_lista_de_pessoas.html(resposta.lista);
             $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
             
-            atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
-            
             if($(".pagina_selecionada").length === 0){
               $div_paginacao_de_cima_da_lista_de_pessoas.html("");
               $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
@@ -655,11 +649,4 @@ $(document).ready(function(){
       dataType:"json"
     });
   });
-  
-  function atualizando_botoes_de_radio_de_um_popup($div_popup){
-    const $botoes_de_radio = $div_popup.find("input[type='radio'][checked='checked']");
-    $botoes_de_radio.each(function(){
-      $(this)[0].checked = true;
-    });
-  }
 });
