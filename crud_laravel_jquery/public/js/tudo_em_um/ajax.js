@@ -549,8 +549,6 @@ $(document).ready(function(){
             $div_lista_de_pessoas.html(resposta.lista);
             $div_paginacao_de_baixo_da_lista_de_pessoas.html(resposta.paginacao);
             
-            atualizando_botoes_de_radio_de_um_popup($div_editar_pessoa);
-            
             if($(".pagina_selecionada").length === 0){
               $div_paginacao_de_cima_da_lista_de_pessoas.html("");
               $div_paginacao_de_baixo_da_lista_de_pessoas.html("");
