@@ -81,7 +81,7 @@ $(document).ready(function(){
     
     var altura_da_div = $div_cadastrar_pessoa.outerHeight();
     var posicao_y = $(window).scrollTop() + ($(window).height() - altura_da_div) / 2;
-    if($(document).width() <= 640){
+    if($(document).width() <= 640 || altura_da_div > $(window).height()){
       var posicao_deste_link = $(this).offset();
       posicao_y = posicao_deste_link.top;
     }
@@ -358,7 +358,7 @@ $(document).ready(function(){
     
     var altura_da_div = $div_visualizar_pessoa.outerHeight();
     var posicao_y = $(window).scrollTop() + ($(window).height() - altura_da_div) / 2;
-    if($(document).width() <= 640){
+    if($(document).width() <= 640 || altura_da_div > $(window).height()){
       var posicao_deste_link = $(this).offset();
       posicao_y = posicao_deste_link.top;
     }
@@ -407,7 +407,7 @@ $(document).ready(function(){
     
     var altura_da_div = $div_editar_pessoa.outerHeight();
     var posicao_y = $(window).scrollTop() + ($(window).height() - altura_da_div) / 2;
-    if($(document).width() <= 640){
+    if($(document).width() <= 640 || altura_da_div > $(window).height()){
       var posicao_deste_link = $(this).offset();
       posicao_y = posicao_deste_link.top;
     }
@@ -689,7 +689,7 @@ $(document).ready(function(){
     var altura_da_div = $div_excluir_pessoa.outerHeight();
     var posicao_deste_link = $(this).offset();
     var posicao_y = posicao_deste_link.top - altura_da_div / 2;
-    if($(document).width() <= 640){
+    if($(document).width() <= 640 || altura_da_div > $(window).height()){
       posicao_y = posicao_deste_link.top;
     }
     
@@ -797,7 +797,7 @@ $(document).ready(function(){
       $div_calendario.css("position", "absolute");
       $div_calendario.css("left", posicao_x);
       $div_calendario.css("top", posicao_y);
-      if(window.innerWidth <= 640){
+      if(window.innerWidth <= 400){
         const largura_do_calendario = 348; //Em pixels.
         $div_calendario.css("left", window.innerWidth / 2 - largura_do_calendario / 2);
       }
@@ -1035,4 +1035,44 @@ $(document).ready(function(){
     }
   });
   
+  /* Comportamento dos popups quando a janela é redimensionada */
+  $(window).on("resize", function(){
+    $div_calendario.addClass("tag_oculta");
+    
+    if(!$div_cadastrar_pessoa.hasClass("tag_oculta")){
+      var largura_da_div = $div_cadastrar_pessoa.outerWidth();
+      var posicao_x = $(document).width() / 2 - largura_da_div / 2;
+      if($(document).width() <= largura_da_div){
+        posicao_x = 0;
+      }
+      $div_cadastrar_pessoa.offset({left: posicao_x});
+    }
+    
+    if(!$div_visualizar_pessoa.hasClass("tag_oculta")){
+      var largura_da_div = $div_visualizar_pessoa.outerWidth();
+      var posicao_x = $(document).width() / 2 - largura_da_div / 2;
+      if($(document).width() <= largura_da_div){
+        posicao_x = 0;
+      }
+      $div_visualizar_pessoa.offset({left: posicao_x});
+    }
+    
+    if(!$div_editar_pessoa.hasClass("tag_oculta")){
+      var largura_da_div = $div_editar_pessoa.outerWidth();
+      var posicao_x = $(document).width() / 2 - largura_da_div / 2;
+      if($(document).width() <= largura_da_div){
+        posicao_x = 0;
+      }
+      $div_editar_pessoa.offset({left: posicao_x});
+    }
+    
+    if(!$div_excluir_pessoa.hasClass("tag_oculta")){
+      var largura_da_div = $div_excluir_pessoa.outerWidth();
+      var posicao_x = $(document).width() / 2 - largura_da_div / 2;
+      if($(document).width() <= largura_da_div){
+        posicao_x = 0;
+      }
+      $div_excluir_pessoa.offset({left: posicao_x});
+    }
+  });
 });

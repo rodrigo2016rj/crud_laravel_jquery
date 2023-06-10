@@ -108,7 +108,7 @@ $(document).ready(function(){
       $div_calendario.css("position", "absolute");
       $div_calendario.css("left", posicao_x);
       $div_calendario.css("top", posicao_y);
-      if(window.innerWidth <= 640){
+      if(window.innerWidth <= 400){
         const largura_do_calendario = 348; //Em pixels.
         $div_calendario.css("left", window.innerWidth / 2 - largura_do_calendario / 2);
       }
@@ -477,4 +477,8 @@ $(document).ready(function(){
     }
   });
   
+  /* Comportamento dos popups quando a janela é redimensionada */
+  $(window).on("resize", function(){
+    $div_calendario.addClass("tag_oculta");
+  });
 });
