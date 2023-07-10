@@ -387,6 +387,7 @@ final class EditarPessoaTest extends TestCase{
       Artisan::call('db:seed', ['--class' => 'DeletePessoaSeeder']);
       Artisan::call('db:seed', ['--class' => 'InsertPessoaSeeder']);
       $pessoa = new Pessoa('array_de_testes');
+      $pessoa->set_nome('Teste Editado');
       $retorno = $editar_pessoa_model->editar_pessoa($pessoa);
 
       error_log("\n");
@@ -400,6 +401,14 @@ final class EditarPessoaTest extends TestCase{
       error_log('Retorno não pode ter mensagem.');
       $this->assertArrayNotHasKey('mensagem_do_model', $retorno);
       error_log('Não tem mensagem.');
+
+      error_log("\n");
+
+      error_log('Verificando por meio de uma consulta genérica se o registro foi editado.');
+      $id = $pessoa->get_pk_pessoa();
+      $array_resultado = $this->consulta_generica_para_testes('pessoa', $id);
+      $this->assertSame($pessoa->get_nome(), $array_resultado[0]->nome);
+      error_log('O registro foi editado.');
 
       error_log("\n");
       error_log('O método passou pelo teste.');

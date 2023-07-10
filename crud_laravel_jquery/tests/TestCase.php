@@ -9,7 +9,7 @@ abstract class TestCase extends BaseTestCase{
 
   use CreatesApplication;
 
-  // Usado para conferir se um registro existe após um insert ou delete.
+  // Usado para conferir um registro após um insert, update ou delete.
   protected final function consulta_generica_para_testes($tabela, $pk){
     $array_resultado = DB::table($tabela)->where("pk_$tabela", '=', $pk)->get()->all();
     return $array_resultado;
