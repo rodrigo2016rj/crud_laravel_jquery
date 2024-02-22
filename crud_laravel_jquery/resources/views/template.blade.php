@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href='{{asset("css/$visual_escolhido_template/template.css")}}' type="text/css" rel="stylesheet"/>
-    <script src="{{asset('js/jQuery 3.6.3 Comprimido.js')}}"></script>
+    <script src="{{asset('js/jQuery 3.7.1 Comprimido.js')}}"></script>
     <script src="{{asset('js/template/interacoes.js')}}"></script>
     @section('head_especifico')
     @show
